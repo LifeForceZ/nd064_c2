@@ -12,10 +12,6 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
 
-import requests
-PERSON_API = "http://localhost:30001/api/persons"
-
-
 class ConnectionService:
     @staticmethod
     def find_contacts(person_id: int, start_date: datetime, end_date: datetime, meters=5
@@ -34,7 +30,7 @@ class ConnectionService:
         ).all()
 
         # Cache all users in memory for quick lookup
-        person_map: Dict[str, Person] = {person.id: person for person in requests.get(PERSON_API)}
+        person_map: Dict[str, Person] = {person.id: person for person in PersonService.retrieve_all()}
 
         # Prepare arguments for queries
         data = []
