@@ -1,8 +1,8 @@
-FROM python:3.7-slim
+FROM python:3.7-alpine
 
 WORKDIR .
 
-RUN apt-get update && apt-get -y install gcc musl-dev geos libc-dev postgresql-dev && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache gcc g++ musl-dev linux-headers geos libc-dev postgresql-dev
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
