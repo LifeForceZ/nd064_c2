@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
 
-import urllib
+import urllib.request
 import json
 
 PERSON_API = "http://localhost:30001/api/persons"
