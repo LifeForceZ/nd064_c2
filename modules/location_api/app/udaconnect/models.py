@@ -11,6 +11,13 @@ from sqlalchemy import BigInteger, Column, Date, DateTime, ForeignKey, Integer, 
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 
+
+import sys
+sys.path.append('../')
+
+from person_api.app.udaconnect.models import Person
+
+
 class Location(db.Model):
     __tablename__ = "location"
 
