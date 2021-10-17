@@ -31,7 +31,7 @@ spec:
         service: udaconnect-app
     spec:
       containers:
-      - image: elym91/udaconnect-app:latest
+      - image: elym91/nd064-udaconnect-app:latest
         name: udaconnect-app
         imagePullPolicy: Always
         resources:
