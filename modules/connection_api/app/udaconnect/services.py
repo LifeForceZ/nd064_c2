@@ -12,7 +12,9 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
 
-import requests
+import urllib
+import json
+
 PERSON_API = "http://localhost:30001/api/persons"
 
 
@@ -34,7 +36,8 @@ class ConnectionService:
         ).all()
 
         # Cache all users in memory for quick lookup
-        person_map: Dict[str, Person] = {person.id: person for person in requests.get(PERSON_API).json()}
+        persons = json.load(urllib.request.urlopen(PERSON_API))
+        person_map: Dict[str, Person] = {person.id: person for person in persons}
 
         # Prepare arguments for queries
         data = []
