@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 WORKDIR .
 
 RUN apk add --no-cache gcc g++ musl-dev linux-headers geos libc-dev postgresql-dev
-COPY requirements.txt requirements_grpc.txt .
+COPY requirements.txt requirements_grpc.txt ./
 RUN pip install -r requirements.txt
 # RUN pip install -r requirements_grpc.txt
 
