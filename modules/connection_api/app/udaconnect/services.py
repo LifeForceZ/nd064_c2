@@ -37,7 +37,7 @@ class ConnectionService:
 
         # Cache all users in memory for quick lookup
         persons = json.load(urllib.request.urlopen(PERSON_API))
-        person_map: Dict[str, Person] = {person.id: person for person in persons}
+        person_map: Dict[str, Person] = {person['id']: person for person in persons}
 
         # Prepare arguments for queries
         data = []
