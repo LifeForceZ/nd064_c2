@@ -12,10 +12,6 @@ logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
 
-import requests
-PERSON_API = "http://udaconnect-person-api/api/persons"
-
-
 class ConnectionService:
     @staticmethod
     def find_contacts(person_id: int, start_date: datetime, end_date: datetime, meters=5
@@ -136,21 +132,3 @@ class PersonService:
     @staticmethod
     def retrieve_all() -> List[Person]:
         return db.session.query(Person).all()
-
-
-class PersonServiceREST:
-    @staticmethod
-    def retrieve_all() -> List[Person]:
-        
-        persons_list = []
-        persons = requests.get(PERSON_API).json()
-
-        for person in persons:
-            p = Person()
-            p.id = person['id']
-            p.first_name = person['first_name']
-            p.last_name = person['last_name']
-            p.company_name = person['company_name']
-            persons_list.append(p)
-
-        return persons_list

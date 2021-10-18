@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message VisitMessage {
+  int32 person_id = 1;
+  string coordinate = 2;
+  string creation_time = 3;
+}
+
+service VisitService {
+    rpc Create(VisitMessage) returns (VisitMessage);
+}
