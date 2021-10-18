@@ -18,5 +18,5 @@ message = {
     "creation_time":"2020-07-07 10:37:06.000000"
 }
 
-producer.send(TOPIC_NAME, json.dumps(message))
+producer.send(TOPIC_NAME, json.dumps(message).encode('utf-8'))
 producer.flush()
