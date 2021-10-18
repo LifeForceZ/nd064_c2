@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  description: API for UdaConnect
+  version: "1.0.0"
+  title: UdaConnect API
+paths:
+  /api/persons/{id}:
+    get:
+      summary: Retrieves basic info of person
+      operationId: getPerson
+      description: Retrieves basic info of person.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The user ID
+      responses:
+        '200':
+          description: Basic info of person
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad input parameter
+  /api/locations/{id}:
+    get:
+      summary: Retrieves location info
+      operationId: getLocation
+      description: Retrieves location info.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: The location ID
+      responses:
+        '200':
+          description: Location info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
+        '400':
+          description: Bad input parameter
+components:
+  schemas:
+    Person:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: 'John'
+        last_name:
+          type: string
+          example: 'Doe'
+        company_name:
+          type: string
+          example: 'ABC Ltd'
+    Location:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          example: 29
+        person_id:
+          type: integer
+          example: 1
+        creation_time:
+          type: string
+          example: '2020-08-18T10:37:06'
+        longitude:
+          type: string
+          example: '37.553441'
+        latitude:
+          type: string
+          example: '-122.290524'
