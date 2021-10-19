@@ -3,12 +3,13 @@
 
 **0. Introduction**
 
-For the purpose of this submission, the monolith application for UdaConnect has been refactored into 
-3 microservices (i.e. `Person`, `Location`, `Connection`). The `Connection` microservice has been further
+For the purpose of this submission, the monolith application for UdaConnect has been refactored into 3 
+microservices (i.e. `Person`, `Location`, `Connection`). The `Connection` microservice has been further
 modified to call a REST API to the `Person` microservice to return a list of connections. `gRPC` and `Kafka` 
 are used to show how the different message passing techniques can be implemented for the application,
-although they are not eventually integrated with the application. An overview of the architectural design
-can be found in `docs/architecture_design.png`.
+although they are not eventually integrated with the application. An overview of the as-is and to-be 
+architectural design can be found respectively in `docs/architecture_design_as_is.png` and 
+`docs/architecture_design_to_be.png`.
 
 **1. Deploy `kubectl`**
 
